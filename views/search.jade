@@ -1,0 +1,39 @@
+﻿html
+ header 
+ link(rel='stylesheet', href='StyleSheet.css', type='text/css' )
+ body
+  div#contact-area
+  form(method='post',action='http://localhost:3000/')
+   p
+    label(for='ServiceName') ServiceName:
+     select(name='ServiceName')
+     if collection = "CheckoutService"  
+     option(value='CheckoutService' selected='selected') CheckoutService     
+     else 
+     option(value='CheckoutService') CheckoutService
+
+     if collection = "SaveOrderService"
+     option(value='SaveOrderService' selected='selected') SaveOrderService
+     else 
+     option(value='SaveOrderService') SaveOrderService
+    p
+     label(for='FromDate') From Date: 
+     input(type="text" name="FromDate" value= FromDate)
+    p
+     label(for='ToDate') To Date: 
+     input(type="text" name="ToDate" value= ToDate)
+    p 
+     input(type='submit' name='btnsubmit')
+     
+   
+ #objects
+       if  objects != null && objects != 'undefined'
+        table(border=1)
+          if  objects.length > 0
+              - each val, key in objects[0]
+                  th= key 
+          - each obj in objects
+            tr.obj
+              - each val, key in obj
+                td.key= val
+    

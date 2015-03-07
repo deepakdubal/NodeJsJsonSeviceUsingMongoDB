@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+     
+<head>
+    <title></title>
+   <script src="jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+        function saveData() {
+            var param = { 'cName': 'SaveOrderService', 'LogText': 'Invalid number2'};
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/SaveErrorLog",
+                data: JSON.stringify(param),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                processData: true,
+                success: function (result) {
+                    alert("Success");
+                },
+                error: function (error, errorMessage) {
+                    alert("Fail");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <button onclick="saveData()" type="button" title="Save Data" value="Save Data" >Save Data</button>
+</body>
+</html>
+ 
